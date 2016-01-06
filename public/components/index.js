@@ -11,12 +11,13 @@ class IndexViewModel{
     
     getData() {
         var currentCategory = this.category();
-        console.log(currentCategory);
-        var url = `../data/${currentCategory}-ideas.json`;
+        var url = `data/${currentCategory}-ideas.json`;
         
         fetch(url)
             .then(response => response.json())
-            .then(json => this.ideas(json));
+            .then(json => {
+                this.ideas(json);
+            });
     }
 }
 $(() => ko.applyBindings(new IndexViewModel));
@@ -24,7 +25,6 @@ $(() => ko.applyBindings(new IndexViewModel));
 
 class ideaList extends HTMLElement {
     createdCallback(){
-        //var myDOM = this.createShadowRoot();
         this.innerHTML = `
         <table cellpadding="5">
             <thead>
@@ -45,5 +45,6 @@ class ideaList extends HTMLElement {
         `;
     }
 }
+
 document.registerElement("idea-list",ideaList);
 

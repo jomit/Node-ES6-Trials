@@ -35,13 +35,12 @@ var IndexViewModel = (function () {
             var _this = this;
 
             var currentCategory = this.category();
-            console.log(currentCategory);
-            var url = "../data/" + currentCategory + "-ideas.json";
+            var url = "data/" + currentCategory + "-ideas.json";
 
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (json) {
-                return _this.ideas(json);
+                _this.ideas(json);
             });
         }
     }]);
@@ -65,7 +64,6 @@ var ideaList = (function (_HTMLElement) {
     _createClass(ideaList, [{
         key: "createdCallback",
         value: function createdCallback() {
-            //var myDOM = this.createShadowRoot();
             this.innerHTML = "\n        <table cellpadding=\"5\">\n            <thead>\n                <tr style=\"font-weight:bold\">\n                    <td>Title</td>\n                    <td>I like it</td>\n                    <td>It won't work</td>\n                </tr>\n             </thead>\n             <tbody data-bind=\"foreach: ideas\">\n                <tr>\n                    <td><a data-bind=\"attr: { href: url }, text: title\" target=\"_blank\"></a></td>\n                    <td><span data-bind=\"text: upvotes\"></span></td>\n                    <td><span  data-bind=\"text: downvotes\"></span></td>         \n                </tr>\n             </tbody>\n        </table>\n        ";
         }
     }]);
