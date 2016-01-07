@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Ideas</title>
+	</head>
+	<body>
+        <h1>Brilliant Ideas:</h1>
+        <br/>
+        <table cellpadding="5">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>Title</td>
+                </tr>
+             </thead>
+             <tbody>
+               @model.ideas.forEach(function(idea){
+                    <tr>
+                        <td><span>@idea.title</span></td>         
+                    </tr>
+                 })
+             </tbody>
+        </table>
+	</body>
+</html>

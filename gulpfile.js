@@ -19,7 +19,7 @@ gulp.task("compile",function(){
     .pipe(gulp.dest(jsPath));
 });
 
-gulp.task("browserify",function(){
+gulp.task("browserify",function() {
     var b = browserify({
         entries: [jsPath + 'components-compiled.js']
     });
@@ -29,7 +29,7 @@ gulp.task("browserify",function(){
 gulp.task("run",function(){
    nodemon({
        script: "app.js",
-       ext: "html js"
+       ext: "html js vash"
    })
 });
 
